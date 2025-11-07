@@ -1,0 +1,118 @@
+:root{
+  --brand-red:#C40017;
+  --brand-yellow:#FBCB4C;
+  --brand-blue:#005EA6;
+  --neutral-900:#2c2c2c;
+  --neutral-700:#5a5a5a;
+  --neutral-200:#e9e9e9;
+  --neutral-100:#f7f7f7;
+  --white:#ffffff;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+  color:var(--neutral-900);
+  background:var(--white);
+}
+
+/* HERO */
+.hero{position:relative;background:var(--brand-red);color:var(--white);overflow:hidden;}
+.logo__img{height:150px}
+.nav__link{color:#fff; opacity:.9; font-weight:600}
+.nav__link:hover{opacity:1; text-decoration:none}
+.hero__content{padding:48px 0 72px}
+.hero__title{font-family:'Raleway',sans-serif;font-weight:800;font-size:2rem;line-height:1.2;}
+.hero__title span{background:var(--brand-yellow); color:#1c1c1c; padding:0 .35rem; border-radius:.25rem}
+.hero__subtitle{opacity:.95; margin-top:8px; font-size:1.05rem}
+.hero__ctas{margin-top:20px}
+.btn{font-weight:700;border-radius:.5rem;}
+.btn-cta{background:var(--brand-yellow);color:#1c1c1c;border:2px solid #00000010;}
+.btn-cta:hover{filter:brightness(.97); color:#1c1c1c}
+.btn-ghost{background:transparent;border:2px solid #ffffff80;color:#fff;}
+.btn-ghost:hover{background:#ffffff14; color:#fff}
+.hero__shape{position:absolute; inset:auto -10% -15% -10%; height:220px; background:linear-gradient(180deg,#00000014,transparent); transform:skewY(-6deg);}
+
+/* SECTION BASE */
+.section{padding:56px 0}
+.section__header{margin-bottom:28px}
+.section__title{font-family:'Raleway',sans-serif;font-weight:800;letter-spacing:.2px;}
+.section__subtitle{color:var(--neutral-700)}
+
+/* BENEFITS */
+.section--benefits{background:var(--neutral-100)}
+.card.benefit{border:none;background:#fff;padding:24px;border-radius:16px;height:100%;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.benefit__icon{font-size:28px; margin-bottom:8px}
+.benefit__title{font-size:1.125rem; font-weight:800}
+.benefit__text{color:var(--neutral-700)}
+
+/* FORM SECTION */
+.section--form{background:linear-gradient(180deg,var(--brand-red), #990012);}
+.section--form .section__title{color:#fff}
+.section--form .section__subtitle{color:#dfefff}
+.form__type-switch .typebtn{background:#ffffff12;color:#fff;border:2px solid #ffffff40;border-radius:999px;padding:8px 16px;font-weight:800;}
+.form__type-switch .typebtn.active{background:#ffffff;color:#0c2c4e;border-color:#ffffff}
+.form--card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.15);}
+.fieldset__title{font-weight:800; font-size:1rem; margin-bottom:.5rem}
+
+/* Inputs */
+.form-control{border-radius:.5rem; border:1px solid var(--neutral-200)}
+.form-control:focus{box-shadow:0 0 0 .2rem rgba(0,94,166,.15); border-color:#77aada}
+
+/* Footer */
+.footer{background:#0f1824; color:#cdd3e0; padding:24px 0}
+.footer .nav__link{color:#cdd3e0; opacity:.9}
+.footer .nav__link:hover{opacity:1}
+
+/* Cookie bar */
+.cookiebar{position:fixed;left:0;right:0;bottom:0;background:#0f1824;color:#fff;padding:12px 0;box-shadow:0 -10px 30px rgba(0,0,0,.2);z-index:9999;display:none;}
+.cookiebar__text a{color:var(--brand-yellow)}
+
+.text-white-80{color:rgba(255,255,255,.8)}
+
+/* Stack CTAs on small screens with spacing */
+@media (max-width: 576px){
+  .btn-stack-sm .btn{display:block;width:100%;margin:0 0 10px 0;}
+  .btn-stack-sm .btn:last-child{margin-bottom:0;}
+}
+
+
+/* === Fix hero__shape blocking buttons === */
+.hero {
+  position: relative;
+}
+
+.hero__shape {
+  position: absolute;
+  inset: 0;
+  z-index: 0 !important;
+  pointer-events: none !important; /* impede o bloqueio de cliques */
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2 !important; /* garante que os botões fiquem acima */
+}
+
+
+
+/* === Overrides: navbar === */
+.nav__link {
+  color: #1f2937; /* slate-800 */
+  text-decoration: none;
+}
+.nav__link:hover, .nav__link:focus {
+  color: #111827; /* slate-900 */
+  text-decoration: underline;
+}
+.btn-ghost {
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  color: #1f2937;
+}
+.btn-ghost:hover, .btn-ghost:focus {
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+  color: #111827;
+}

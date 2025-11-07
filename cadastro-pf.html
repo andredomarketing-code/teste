@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atualizar cadastro • Pessoa Física</title>
+  <meta name="description" content="Atualização de cadastro de Pessoa Física do programa Cliente Campeão." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap (opcional) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./styles-cadastro.css" />
+  <link rel="icon" href="assets/favicon.png" />
+</head>
+<body>
+  <!-- Appbar compacta -->
+  <header class="bg-white border-bottom" role="banner">
+    <div class="container d-flex align-items-center justify-content-between py-2">
+      <a href="index.html" class="d-inline-flex align-items-center">
+        <img src="assets/top-banner-logo.png" alt="Cliente Campeão • Paulistão Atacadista" style="height:48px" />
+      </a>
+      <nav class="d-flex align-items-center">
+        <a href="#" class="nav__link mr-3">Meu cadastro</a>
+        <a href="index.html" class="btn btn-sm btn-ghost">Sair</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" role="main">
+    <section class="section section--form" aria-labelledby="titlePF">
+      <div class="container">
+        <header class="section__header text-center">
+          <h1 id="titlePF" class="section__title text-white">Seus dados cadastrais</h1>
+          <p class="section__subtitle text-white-80">Mantenha seus dados atualizados. altere os campos necessários e salve para atualizar.</p>
+        </header>
+
+        <form id="formPF" class="form form--card" novalidate>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="pfNome">Primeiro nome*</label>
+              <input type="text" id="pfNome" class="form-control" required autocomplete="given-name" value="Maria">
+              <div class="invalid-feedback">Informe seu primeiro nome.</div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="pfSobrenome">Sobrenome*</label>
+              <input type="text" id="pfSobrenome" class="form-control" required autocomplete="family-name" value="Silva">
+              <div class="invalid-feedback">Informe seu sobrenome.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="pfEmail">E-mail*</label>
+              <input type="email" id="pfEmail" class="form-control" value="maria.silva@email.com" autocomplete="email" required>
+              <div class="invalid-feedback">Informe um e-mail válido.</div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="pfCelular">Celular*</label>
+              <input type="tel" id="pfCelular" class="form-control" value="(11) 91234-5678" autocomplete="tel" required>
+              <div class="invalid-feedback">Informe um celular válido.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="pfCPF">CPF*</label>
+              <input type="text" id="pfCPF" class="form-control" inputmode="numeric" value="675.610.030-05" required pattern="\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}" title="Formato: 000.000.000-00" readonly aria-readonly="true">
+              <div class="invalid-feedback">CPF inválido.</div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="pfNascimento">Data de nascimento*</label>
+              <input type="text" id="pfNascimento" class="form-control" value="31/12/1990" required readonly aria-readonly="true">
+              <div class="invalid-feedback">Informe sua data de nascimento.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="pfGenero">Gênero</label>
+              <select id="pfGenero" class="form-control" placeholder="Selecione">
+                <option value="">Selecione</option>
+                <option>Masculino</option>
+                <option>Feminino</option>
+                <option>Outro</option>
+                <option>Prefiro não dizer</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="pfArea">Em que área você trabalha?</label>
+              <select id="pfArea" class="form-control" placeholder="Selecione">
+                <option value="">Selecione</option>
+                <option>Restaurantes</option>
+                <option>Casa de bolos e tortas</option>
+                <option>Açougues</option>
+                <option>Doces e sobremesas</option>
+                <option>Merenda escolar</option>
+                <option>Pastelaria</option>
+                <option>Food Truck</option>
+                <option>Mercadinhos</option>
+                <option>Pubs e bares</option>
+                <option>Refeições em marmita</option>
+                <option>Pizzaria</option>
+                <option>Peixaria</option>
+                <option>Sorveteria</option>
+                <option>Cafés e padarias</option>
+                <option>Churrasquinho</option>
+                <option>Lanchonete</option>
+                <option>Temakeria</option>
+                <option>Alimentação saudável</option>
+                <option>Buffet</option>
+                <option>Gelateria</option>
+                <option>Outro</option>
+                <option>Não quero informar</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="mt-3">
+            <legend class="fieldset__title">Endereço</legend>
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="pfCEP">CEP*</label>
+                <input type="text" id="pfCEP" class="form-control" value="14.027-250" required>
+                <div class="invalid-feedback">Informe um CEP válido.</div>
+              </div>
+              <div class="form-group col-md-5">
+                <label for="pfLogradouro">Logradouro*</label>
+                <input type="text" id="pfLogradouro" class="form-control" required placeholder="Rua das Flores">
+                <div class="invalid-feedback">Informe o logradouro.</div>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="pfNumero">Número*</label>
+                <input type="text" id="pfNumero" class="form-control" required value="123">
+                <div class="invalid-feedback">Informe o número.</div>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="pfComplemento">Compl.</label>
+                <input type="text" id="pfComplemento" class="form-control" placeholder="">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="pfBairro">Bairro*</label>
+                <input type="text" id="pfBairro" class="form-control" required placeholder="Centro">
+                <div class="invalid-feedback">Informe o bairro.</div>
+              </div>
+              <div class="form-group col-md-5">
+                <label for="pfCidade">Cidade*</label>
+                <input type="text" id="pfCidade" class="form-control" required placeholder="Ribeirão Preto">
+                <div class="invalid-feedback">Informe a cidade.</div>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="pfUF">UF*</label>
+                <select id="pfUF" class="form-control" required placeholder="SP">
+                  <option value="">UF</option>
+                  <option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option>
+                </select>
+                <div class="invalid-feedback">Informe a UF.</div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="consents mt-3">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="pfOptWhatsapp" checked>
+              <label class="custom-control-label" for="pfOptWhatsapp">Desejo receber comunicações por WhatsApp</label>
+            </div>
+            <div class="custom-control custom-checkbox mt-2">
+              <input type="checkbox" class="custom-control-input" id="pfOptSMS" checked>
+              <label class="custom-control-label" for="pfOptSMS">Desejo receber mensagens por SMS</label>
+            </div>
+            <div class="custom-control custom-checkbox mt-2">
+              <input type="checkbox" class="custom-control-input" id="pfOptEmail" checked>
+              <label class="custom-control-label" for="pfOptEmail">Desejo receber mensagens por e-mail</label>
+            </div>
+          </div>
+
+          <div class="text-right mt-4">
+            <button id="btnSavePF" class="btn btn-cta btn-lg" type="submit">Salvar alterações</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+      <p class="m-0">© <span id="year"></span> Paulistão Atacadista • Programa Cliente Campeão</p>
+      <nav class="footer__nav">
+        <a href="#" class="nav__link">Meu cadastro</a>
+        <a href="index.html" class="nav__link ml-3">Sair</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="./account.js"></script>
+</body>
+</html>

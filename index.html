@@ -1,12 +1,473 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <title>Título da página</title>
-    <meta charset="utf-8">
-  </head>
-  <body>
-   <h1>Teste do script do chatbot - Paulinha</h1>
-	<footer>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cliente Campeão • Paulistão Atacadista</title>
+  <meta name="description" content="Programa de fidelidade Cliente Campeão do Paulistão Atacadista. Cadastre-se para economizar todos os dias e receber ofertas personalizadas." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap (opcional) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" href="assets/favicon.png" />
+</head>
+<body>
+  <header class="hero" role="banner">
+    <div class="container">
+      <nav class="d-flex align-items-center justify-content-between py-3">
+        <a href="#" class="logo d-inline-flex align-items-center">
+          <img src="assets/top-banner-logo.png" alt="Cliente Campeão • Paulistão Atacadista" class="logo__img" />
+        </a>
+        <div class="d-none d-md-block">
+          <a href="#vantagens" class="nav__link">Vantagens</a>
+          <a href="#cadastro" class="nav__link ml-3">Cadastro</a>
+        <a href="#" class="nav__link ml-3" data-toggle="modal" data-target="#modalLogin">Acessar minha conta</a>
+        </div>
+      </nav>
+
+      <div class="hero__content">
+        <h1 class="hero__title">Seja um <span>Cliente Campeão</span> e economize todo dia!</h1>
+        <p class="hero__subtitle">Seja um Campeão! Cadastre-se no programa de vantagens do <Strong>Campeão da Economia</strong>!</p>
+        <div class="hero__ctas btn-stack-sm">
+          <a href="#cadastro" class="btn btn-cta">Quero me cadastrar</a>
+          <a href="#" class="btn btn-ghost ml-2" data-toggle="modal" data-target="#modalLogin">Acessar minha conta</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__shape" aria-hidden="true"></div>
+  </header>
+
+  <main id="content" role="main">
+    <section id="vantagens" class="section section--benefits">
+      <div class="container">
+        <header class="section__header text-center">
+          <h2 class="section__title">Por que ser Cliente Campeão?</h2>
+          <p class="section__subtitle">Quem participa aproveita preços especiais, ofertas exclusivas e muito mais vantagens.</p>
+        </header>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 mb-4">
+            <article class="card benefit">
+              <div class="benefit__icon" aria-hidden="true">💸</div>
+              <h3 class="benefit__title">Economia real</h3>
+              <p class="benefit__text">Descontos exclusivos em centenas de itens.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4">
+            <article class="card benefit">
+              <div class="benefit__icon" aria-hidden="true">🎯</div>
+              <h3 class="benefit__title">Ofertas para você</h3>
+              <p class="benefit__text">Preços exclusivos para clientes cadastrados.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4">
+            <article class="card benefit">
+              <div class="benefit__icon" aria-hidden="true">🛒</div>
+              <h3 class="benefit__title">Campanhas exclusivas</h3>
+              <p class="benefit__text">Participe de nossas campanhas exclusivas.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4">
+            <article class="card benefit">
+              <div class="benefit__icon" aria-hidden="true">⚡</div>
+              <h3 class="benefit__title">Cadastro em minutos</h3>
+              <p class="benefit__text">Cadastro simples, rápido e fácil.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cadastro" class="section section--form" aria-labelledby="cadastroTitle">
+      <div class="container">
+        <header class="section__header text-center">
+          <h2 id="cadastroTitle" class="section__title text-white">Cadastre-se agora</h2>
+          <p class="section__subtitle text-white-80">Preencha todos os dados, confirme seu cadastro e comece a aproveitar os benefícios de ser <strong>Cliente Campeão</strong> agora mesmo.</p>
+        </header>
+
+        <div class="form__type-switch text-center mb-4" role="tablist" aria-label="Tipo de cadastro">
+          <button id="tabPF" class="typebtn active" role="tab" aria-selected="true" aria-controls="panelPF">Pessoa Física</button>
+          <button id="tabPJ" class="typebtn ml-2" role="tab" aria-selected="false" aria-controls="panelPJ">Pessoa Jurídica</button>
+        </div>
+
+        <!-- PF -->
+        <form id="formPF" class="form form--card" role="tabpanel" aria-labelledby="tabPF">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="pfNome">Primeiro nome*</label>
+              <input type="text" id="pfNome" class="form-control" required autocomplete="given-name">
+              <div class="invalid-feedback">Informe seu primeiro nome.</div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="pfSobrenome">Sobrenome*</label>
+              <input type="text" id="pfSobrenome" class="form-control" required autocomplete="family-name">
+              <div class="invalid-feedback">Informe seu sobrenome.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="pfEmail">E-mail*</label>
+              <input type="email" id="pfEmail" class="form-control" placeholder="seuemail@exemplo.com" autocomplete="email"required>
+              <div class="invalid-feedback">Informe um e-mail válido.</div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="pfCelular">Celular*</label>
+              <input type="tel" id="pfCelular" class="form-control" placeholder="(00) 0 0000-0000" autocomplete="tel" required>
+              <div class="invalid-feedback">Informe um celular válido.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="pfCPF">CPF*</label>
+              <input type="text" id="pfCPF" class="form-control" inputmode="numeric" placeholder="000.000.000-00" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: 000.000.000-00">
+              <div class="invalid-feedback">CPF inválido.</div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="pfNascimento">Data de nascimento*</label>
+              <input type="text" id="pfNascimento" class="form-control" placeholder="DD/MM/AAAA" required>
+              <div class="invalid-feedback">Informe sua data de nascimento.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="pfGenero">Gênero</label>
+              <select id="pfGenero" class="form-control">
+                <option value="">Selecione</option>
+                <option>Masculino</option>
+                <option>Feminino</option>
+                <option>Outro</option>
+                <option>Prefiro não dizer</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="pfArea">Em que área você trabalha?</label>
+              <select id="pfArea" class="form-control">
+                <option value="">Selecione</option>
+                <option>Restaurantes</option>
+                <option>Casa de bolos e tortas</option>
+                <option>Açougues</option>
+                <option>Doces e sobremesas</option>
+                <option>Merenda escolar</option>
+                <option>Pastelaria</option>
+                <option>Food Truck</option>
+                <option>Mercadinhos</option>
+                <option>Pubs e bares</option>
+                <option>Refeições em marmita</option>
+                <option>Pizzaria</option>
+                <option>Peixaria</option>
+                <option>Sorveteria</option>
+                <option>Cafés e padarias</option>
+                <option>Churrasquinho</option>
+                <option>Lanchonete</option>
+                <option>Temakeria</option>
+                <option>Alimentação saudável</option>
+                <option>Buffet</option>
+                <option>Gelateria</option>
+                <option>Outro</option>
+                <option>Não quero informar</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="mt-3">
+            <legend class="fieldset__title">Endereço</legend>
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="pfCEP">CEP*</label>
+                <input type="text" id="pfCEP" class="form-control" placeholder="00.000-000" required>
+                <div class="invalid-feedback">Informe um CEP válido.</div>
+              </div>
+              <div class="form-group col-md-5">
+                <label for="pfLogradouro">Logradouro*</label>
+                <input type="text" id="pfLogradouro" class="form-control" required>
+                <div class="invalid-feedback">Informe o logradouro.</div>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="pfNumero">Número*</label>
+                <input type="text" id="pfNumero" class="form-control" required>
+                <div class="invalid-feedback">Informe o número.</div>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="pfComplemento">Compl.</label>
+                <input type="text" id="pfComplemento" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="pfBairro">Bairro*</label>
+                <input type="text" id="pfBairro" class="form-control" required>
+                <div class="invalid-feedback">Informe o bairro.</div>
+              </div>
+              <div class="form-group col-md-5">
+                <label for="pfCidade">Cidade*</label>
+                <input type="text" id="pfCidade" class="form-control" required>
+                <div class="invalid-feedback">Informe a cidade.</div>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="pfUF">UF*</label>
+                <select id="pfUF" class="form-control" required>
+                  <option value="">UF</option>
+                  <option>AC</option>
+                  <option>AL</option>
+                  <option>AP</option>
+                  <option>AM</option>
+                  <option>BA</option>
+                  <option>CE</option>
+                  <option>DF</option>
+                  <option>ES</option>
+                  <option>GO</option>
+                  <option>MA</option>
+                  <option>MT</option>
+                  <option>MS</option>
+                  <option>MG</option>
+                  <option>PA</option>
+                  <option>PB</option>
+                  <option>PR</option>
+                  <option>PE</option>
+                  <option>PI</option>
+                  <option>RJ</option>
+                  <option>RN</option>
+                  <option>RS</option>
+                  <option>RO</option>
+                  <option>RR</option>
+                  <option>SC</option>
+                  <option>SP</option>
+                  <option>SE</option>
+                  <option>TO</option>
+
+                </select>
+                <div class="invalid-feedback">Informe a UF.</div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="mt-3">
+            <legend class="fieldset__title">Confirmação</legend>
+            <div class="form-row">
+              <div class="form-group col-12">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="pfConfirmEmail" name="pfConfirm" class="custom-control-input" value="email" required>
+                  <label class="custom-control-label" for="pfConfirmEmail">Confirmar por e-mail</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="pfConfirmSMS" name="pfConfirm" class="custom-control-input" value="sms">
+                  <label class="custom-control-label" for="pfConfirmSMS">Confirmar por SMS</label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="consents mt-3">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="pfOptin" required>
+              <label class="custom-control-label" for="pfOptin">Quero receber novidades, ofertas e promoções por E-mail, SMS ou WhatsApp.</label>
+            </div>
+            <div class="custom-control custom-checkbox mt-2">
+              <input type="checkbox" class="custom-control-input" id="pfTerms" required>
+              <label class="custom-control-label" for="pfTerms">Li e concordo com o <a href="https://privacy-central.securiti.ai/#/notices/f2719603-645f-4117-a1c4-3bfa9a84541f" target="_blank" rel="noopener">regulamento e termos de uso</a> e a <a href="https://privacy-central.securiti.ai/#/notices/a265f360-8235-4817-91e1-572f13687d09" target="_blank" rel="noopener">política de privacidade</a>.</label>
+            </div>
+            <div class="custom-control custom-checkbox mt-2">
+              <input type="checkbox" class="custom-control-input" id="pfAge" required>
+              <label class="custom-control-label" for="pfAge">Reconheço que sou maior de 18 anos e estou assistido por um responsável.</label>
+            </div>
+          </div>
+
+          <div class="text-right mt-4">
+            <button id="btnSubmitPF" class="btn btn-cta btn-lg" type="submit">Concluir cadastro</button>
+          </div>
+        </form>
+
+        <!-- PJ -->
+        <form id="formPJ" class="form form--card d-none" role="tabpanel" aria-labelledby="tabPJ">
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="pjRazao">Razão Social*</label>
+              <input type="text" id="pjRazao" class="form-control" required>
+              <div class="invalid-feedback">Informe a razão social.</div>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="pjCNPJ">CNPJ*</label>
+              <input type="text" id="pjCNPJ" class="form-control" placeholder="00.000.000/0000-00" required pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" title="Formato: 00.000.000/0000-00" inputmode="numeric">
+              <div class="invalid-feedback">CNPJ inválido.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="pjEmail">E-mail*</label>
+              <input type="email" id="pjEmail" class="form-control" required>
+              <div class="invalid-feedback">Informe um e-mail válido.</div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="pjCelular">Celular*</label>
+              <input type="tel" id="pjCelular" class="form-control" placeholder="(00) 0 0000-0000" required>
+              <div class="invalid-feedback">Informe um celular válido.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="pjCategoria">Categoria do negócio*</label>
+              <select id="pjCategoria" class="form-control" required>
+                <option value="">Selecione</option>
+                <option>Restaurantes</option>
+                <option>Casa de bolos e tortas</option>
+                <option>Açougues</option>
+                <option>Doces e sobremesas</option>
+                <option>Merenda escolar</option>
+                <option>Pastelaria</option>
+                <option>Food Truck</option>
+                <option>Mercadinhos</option>
+                <option>Pubs e bares</option>
+                <option>Refeições em marmita</option>
+                <option>Pizzaria</option>
+                <option>Peixaria</option>
+                <option>Sorveteria</option>
+                <option>Cafés e padarias</option>
+                <option>Churrasquinho</option>
+                <option>Lanchonete</option>
+                <option>Temakeria</option>
+                <option>Alimentação saudável</option>
+                <option>Buffet</option>
+                <option>Gelateria</option>
+                <option>Outro</option>
+				<option>Não quero informar</option>
+              </select>
+              <div class="invalid-feedback">Selecione a categoria.</div>
+            </div>
+          </div>
+
+          <fieldset class="mt-3">
+            <legend class="fieldset__title">Endereço</legend>
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="pjCEP">CEP*</label>
+                <input type="text" id="pjCEP" class="form-control" placeholder="00.000-000" required>
+                <div class="invalid-feedback">Informe um CEP válido.</div>
+              </div>
+              <div class="form-group col-md-5">
+                <label for="pjLogradouro">Logradouro*</label>
+                <input type="text" id="pjLogradouro" class="form-control" required>
+                <div class="invalid-feedback">Informe o logradouro.</div>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="pjNumero">Número*</label>
+                <input type="text" id="pjNumero" class="form-control" required>
+                <div class="invalid-feedback">Informe o número.</div>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="pjComplemento">Compl.</label>
+                <input type="text" id="pjComplemento" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="pjBairro">Bairro*</label>
+                <input type="text" id="pjBairro" class="form-control" required>
+                <div class="invalid-feedback">Informe o bairro.</div>
+              </div>
+              <div class="form-group col-md-5">
+                <label for="pjCidade">Cidade*</label>
+                <input type="text" id="pjCidade" class="form-control" required>
+                <div class="invalid-feedback">Informe a cidade.</div>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="pjUF">UF*</label>
+                <select id="pjUF" class="form-control" required>
+                  <option value="">UF</option>
+                  <option>AC</option>
+                  <option>AL</option>
+                  <option>AP</option>
+                  <option>AM</option>
+                  <option>BA</option>
+                  <option>CE</option>
+                  <option>DF</option>
+                  <option>ES</option>
+                  <option>GO</option>
+                  <option>MA</option>
+                  <option>MT</option>
+                  <option>MS</option>
+                  <option>MG</option>
+                  <option>PA</option>
+                  <option>PB</option>
+                  <option>PR</option>
+                  <option>PE</option>
+                  <option>PI</option>
+                  <option>RJ</option>
+                  <option>RN</option>
+                  <option>RS</option>
+                  <option>RO</option>
+                  <option>RR</option>
+                  <option>SC</option>
+                  <option>SP</option>
+                  <option>SE</option>
+                  <option>TO</option>
+
+                </select>
+                <div class="invalid-feedback">Informe a UF.</div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="mt-3">
+            <legend class="fieldset__title">Confirmação</legend>
+            <div class="form-row">
+              <div class="form-group col-12">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="pjConfirmEmail" name="pjConfirm" class="custom-control-input" value="email" required>
+                  <label class="custom-control-label" for="pjConfirmEmail">Confirmar por e-mail</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="pjConfirmSMS" name="pjConfirm" class="custom-control-input" value="sms" required>
+                  <label class="custom-control-label" for="pjConfirmSMS">Confirmar por SMS</label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="consents mt-3">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="pjOptin" required>
+              <label class="custom-control-label" for="pjOptin">Quero receber novidades, ofertas e promoções por E-mail, SMS ou WhatsApp.</label>
+            </div>
+            <div class="custom-control custom-checkbox mt-2">
+              <input type="checkbox" class="custom-control-input" id="pjTerms" required>
+              <label class="custom-control-label" for="pjTerms">Li e concordo com o <a href="https://privacy-central.securiti.ai/#/notices/f2719603-645f-4117-a1c4-3bfa9a84541f" target="_blank" rel="noopener">regulamento e termos de uso</a> e a <a href="https://privacy-central.securiti.ai/#/notices/a265f360-8235-4817-91e1-572f13687d09" target="_blank" rel="noopener">política de privacidade</a>.</label>
+            </div>
+            <div class="custom-control custom-checkbox mt-2">
+              <input type="checkbox" class="custom-control-input" id="pjAge" required>
+              <label class="custom-control-label" for="pjAge">Reconheço que sou maior de 18 anos e estou assistido por um responsável.</label>
+            </div>
+          </div>
+
+          <div class="text-right mt-4">
+            <button id="btnSubmitPJ" class="btn btn-cta btn-lg" type="submit">Concluir cadastro</button>
+          </div>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+      <p class="m-0">© <span id="year"></span> Paulistão Atacadista • Programa Cliente Campeão</p>
+      <nav class="footer__nav">
+        <a href="#cadastro" class="nav__link">Cadastro</a>
+        <a href="#vantagens" class="nav__link ml-3">Vantagens</a>
+      </nav>
+    </div>
+	
 	<script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
@@ -26,7 +487,135 @@
 	};
 </script>
 <script type='text/javascript' src='https://ability-efficiency-3511.my.site.com/ESWPaulinha1758723947289/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+	
+  </footer>
 
-	</footer>
-  </body>
+  <!-- Cookie Bar -->
+  <div id="cookieBar" class="cookiebar" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+      <p class="cookiebar__text mb-2 mb-md-0">Usamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa <a href="https://privacy-central.securiti.ai/#/notices/a265f360-8235-4817-91e1-572f13687d09" target="_blank" rel="noopener">política de privacidade</a>.</p>
+      <button id="cookieOk" class="btn btn-cta btn-sm">OK</button>
+    </div>
+  </div>
+
+  <!-- Modal: Escolha de Loja -->
+  <div class="modal fade" id="modalLojas" tabindex="-1" role="dialog" aria-labelledby="modalLojasTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLojasTitle">Escolha a loja mais próxima</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="formLoja">
+            <div class="form-group">
+              <label for="buscaCEP">Buscar por CEP</label>
+              <input type="text" id="buscaCEP" class="form-control" placeholder="00.000-000">
+            </div>
+            <div class="form-group">
+              <label for="listaLojas">Ou selecione na lista</label>
+              <select id="listaLojas" class="form-control">
+                <option value="">Selecione</option>
+                <option value="campinas-centro">Campinas - Centro</option>
+                <option value="ribeirao-preto">Ribeirão Preto</option>
+                <option value="sao-carlos">São Carlos</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost" data-dismiss="modal">Depois</button>
+          <button type="button" id="btnEscolherLoja" class="btn btn-cta">Escolher</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="./main.js"></script>
+
+  <!-- Modal: Confirmação de Cadastro -->
+  <div class="modal fade" id="modalConfirmacao" tabindex="-1" role="dialog" aria-labelledby="modalConfirmacaoTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalConfirmacaoTitle">Cadastro concluído</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Cadastro concluído. Você receberá um <strong id="canalEscolhido">e-mail</strong> para concluir seu cadastro.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btnOkConfirmacao" class="btn btn-cta" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal: Login (CPF/CNPJ + canal + CTA) -->
+  <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLoginTitle">Acessar minha conta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="loginStepForm">
+            <div class="btn-group btn-group-toggle d-flex mb-3" data-toggle="buttons">
+              <label class="btn btn-light active flex-fill" id="loginCpfTab">
+                <input type="radio" name="loginTipo" value="cpf" autocomplete="off" checked> CPF
+              </label>
+              <label class="btn btn-light flex-fill" id="loginCnpjTab">
+                <input type="radio" name="loginTipo" value="cnpj" autocomplete="off"> CNPJ
+              </label>
+            </div>
+            <form id="formLogin" novalidate>
+              <div class="form-group" id="grupoCPF">
+                <label for="loginCPF">CPF</label>
+                <input type="text" id="loginCPF" class="form-control" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: 000.000.000-00" inputmode="numeric" required>
+                <div class="invalid-feedback">Informe um CPF válido.</div>
+              </div>
+              <div class="form-group d-none" id="grupoCNPJ">
+                <label for="loginCNPJ">CNPJ</label>
+                <input type="text" id="loginCNPJ" class="form-control" placeholder="00.000.000/0000-00" pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" title="Formato: 00.000.000/0000-00" inputmode="numeric">
+                <div class="invalid-feedback">Informe um CNPJ válido.</div>
+              </div>
+              <fieldset class="mt-2">
+                <legend class="fieldset__title">Receber confirmação por</legend>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="loginCanalEmail" name="loginCanal" class="custom-control-input" value="email" required>
+                  <label class="custom-control-label" for="loginCanalEmail">E-mail</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="loginCanalSMS" name="loginCanal" class="custom-control-input" value="sms">
+                  <label class="custom-control-label" for="loginCanalSMS">SMS</label>
+                </div>
+              </fieldset>
+              <div class="text-right mt-3">
+                <button type="button" id="btnLoginProceed" class="btn btn-cta d-none">Acessar minha conta</button>
+              </div>
+            </form>
+          </div>
+          <div id="loginStepSuccess" class="d-none">
+            <h2 class="h5 mb-2">Solicitação de acesso recebido!</h2>
+            <h3 class="h6">Para acessar, clique no link enviado para o seu <span id="loginChannelText">e-mail</span>.</h3>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btnOkLogin" class="btn btn-cta d-none" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>
