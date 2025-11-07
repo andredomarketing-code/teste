@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Título da página</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+   <h1>Teste do script do chatbot - Paulinha</h1>
+	<footer>
+	<script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'pt_BR'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00DHn000003u1AP',
+				'Paulinha',
+				'https://ability-efficiency-3511.my.site.com/ESWPaulinha1758723947289',
+				{
+					scrt2URL: 'https://ability-efficiency-3511.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://ability-efficiency-3511.my.site.com/ESWPaulinha1758723947289/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+	</footer>
+  </body>
+</html>
